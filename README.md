@@ -1,10 +1,26 @@
 # GPE
 
-Solutions to programming-exam practice problems from UVa Online Judge and ZeroJudge, written between 2024-09 and 2024-10. A few files include short comments explaining the approach.
+> Solutions to programming-exam practice problems from UVa Online Judge and ZeroJudge, written between 2024-09 and 2024-10. A few files include short comments explaining the approach.
+
+## Overview
 
 - **50 solutions**: 49 in C++, 1 in Python.
 - File names follow `<problem number> - <title>.<ext>`; problems without a number are listed by title only.
 - Status: no changes since 2024-10-22.
+
+## Main features and content
+
+The repository contains 50 programming-exam solutions: 49 C++ files and one Python file. The problem list appears below.
+
+## Status and known limitations
+
+No changes are recorded after 2024-10-22 in the original README; the solutions are retained as past practice.
+
+## License and sources
+
+No license file is present in the repository root; this README does not declare reuse rights.
+
+---
 
 ## Build and run
 
