@@ -47,8 +47,11 @@ def load_problems():
                 raise ValueError(f'Untrusted original source: {filename}')
         if problem['originalStatus'] not in ('verified', 'unverified', 'unknown'):
             raise ValueError(f'Unknown original status: {filename}')
-        if problem['originalStatus'] == 'verified' and not problem.get('sourceCheckedAt'):
-            raise ValueError(f'Verification evidence is missing: {filename}')
+        if problem['originalStatus'] == 'verified':
+            if (not url or not problem.get('originalTitle')
+                    or not re.fullmatch(r'\d{4}-\d{2}-\d{2}', problem.get('sourceCheckedAt', ''))
+                    or not re.fullmatch(r'[a-f0-9]{64}', problem.get('originalSha256', ''))):
+                raise ValueError(f'Verification evidence is missing: {filename}')
         problem['code'] = read_source(ROOT / filename)
         files.add(filename)
         ids.add(ident)

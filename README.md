@@ -38,8 +38,8 @@ The SDLC notes and current acceptance evidence are in `docs/01-project-plan.md` 
 
 ## Status and known limitations
 
-- Chinese explanations are code-derived summaries, not verified full translations of the original statements.
-- 43 entries have candidate official UVa PDF links. These have not yet been checked against the original statements because the current environment denies those destinations. Seven entries have no confirmed original source; filenames alone do not prove judge identity.
+- Chinese explanations are learning summaries, not full verbatim translations of the original statements.
+- 43 official UVa PDFs have been read to check problem identity and core meaning. Each entry records its official title, review date and source PDF hash. Seven entries have no confirmed original source; filenames alone do not prove judge identity. See `docs/05-source-review.md`.
 - PDF viewing is on demand and depends on browser/site support; the external official link remains available. Original statements are not copied into this repository.
 - Historical source code is not guaranteed accepted or correct. Known concerns appear alongside the explanation; syntax compilation does not establish runtime correctness.
 

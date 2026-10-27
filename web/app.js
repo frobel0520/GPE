@@ -91,6 +91,9 @@ function sourceSection(p) {
   node.append(element('p', 'muted', p.originalStatus === 'verified'
     ? '題意與來源已核對，請以官方原文的限制與輸出格式為準。'
     : '依題號與名稱整理的 UVa 官方 PDF 連結，尚未核對原文。中文摘要依現有程式整理；完整限制、圖例與格式請以核對後的原文為準。'));
+  if (p.originalStatus === 'verified') {
+    node.append(element('p', 'editorial-note', `官方題名：${p.originalTitle} · 核對日期：${p.sourceCheckedAt}`));
+  }
   const actions = element('div', 'source-actions');
   const link = element('a', 'primary-button', '前往官方原文 ↗');
   link.href = p.originalUrl;
@@ -141,7 +144,9 @@ function showProblem(p) {
     nav.append(button);
   }
   const summary = section('02', '這題要做什麼？', 'summary');
-  summary.append(element('p', 'summary-text', p.summary), element('p', 'editorial-note', '白話摘要 · 依歷史解答整理，非原題逐字翻譯。'));
+  summary.append(element('p', 'summary-text', p.summary), element('p', 'editorial-note', p.originalStatus === 'verified'
+    ? '白話摘要 · 依歷史解答整理並核對官方題意，非原題逐字翻譯。'
+    : '白話摘要 · 依歷史解答整理，非原題逐字翻譯。'));
   const steps = section('03', '把思路拆開來看', 'steps');
   const list = element('ol', 'steps');
   for (const step of p.steps) list.append(element('li', '', step));

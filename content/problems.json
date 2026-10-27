@@ -22,10 +22,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/1/147.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Dollars",
+    "originalSha256": "13d9470434148cf4730b4f9cc990825f0c5abd5daffbb9a4c4f37183efa25415"
   },
   {
     "id": "problem-151",
@@ -50,10 +53,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/1/151.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Power Crisis",
+    "originalSha256": "c3fe12ae9c1a39aa74f404e3f777348f462f4882d298a22ce0adc20cb4e44569"
   },
   {
     "id": "problem-166",
@@ -78,10 +84,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/1/166.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Making Change",
+    "originalSha256": "1c98d222aa3dab6bfc8d4b6806c18837333db6a1647e0d42d9f0eb745482087e"
   },
   {
     "id": "problem-256",
@@ -106,10 +115,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/2/256.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Quirksome Squares",
+    "originalSha256": "79f5be10304eddb6d70de1c187c676d2ceb8582657a784a9db3a9eb65670ff63"
   },
   {
     "id": "problem-378",
@@ -162,10 +174,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/3/382.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Perfection",
+    "originalSha256": "e665e19932cb03cae9a31cd103f57919c19d3df293ae560b38f30ece043f7cfc"
   },
   {
     "id": "problem-572",
@@ -190,10 +205,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/5/572.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Oil Deposits",
+    "originalSha256": "078d7233b0777f6c5e462a24e3419d6dbd596118688b10fadf2aeac6fe320c19"
   },
   {
     "id": "problem-719",
@@ -218,10 +236,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/7/719.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Glass Beads",
+    "originalSha256": "d8394519db82125a064f507f4fb1ba5b6c9318cba400c163b6a0ff9af3f05919"
   },
   {
     "id": "problem-900",
@@ -234,7 +255,7 @@
       "動態規劃",
       "數學"
     ],
-    "summary": "用指定尺寸的磚填滿固定寬度、長度為 N 的牆，計算不同鋪法數。",
+    "summary": "用 1×2 的磚填滿高 2、長 N 的牆，計算不同鋪法數；磚可以橫放或直放。",
     "steps": [
       "從最後一段看，排列可由長度 N-1 與 N-2 的排列延伸。",
       "設定 f[0] = f[1] = 1，預先計算 f[n] = f[n-1]+f[n-2]。",
@@ -242,14 +263,17 @@
     ],
     "complexity": "預處理 O(M)，查詢 O(1)，空間 O(M)。M 為最大長度。",
     "pitfalls": [
-      "原碼使用 int，N 較大時斐波那契數會超出範圍；應先確認原題上限。"
+      "原題 N 最大為 50，答案 f[50] = 20365011074，超過 32 位元 int 範圍；原碼使用 int，不能直接視為正確的大範圍解答。"
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/9/900.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Brick Wall Patterns",
+    "originalSha256": "b70fabee3e3d545171deb1b56d19e2f157e357433d1ddc0efb3212c26a3702f5"
   },
   {
     "id": "problem-10007",
@@ -274,9 +298,12 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/100/10007.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
-    "codeStatus": "unverified"
+    "codeStatus": "unverified",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Count the Trees",
+    "originalSha256": "a4384cc02830413e1eca008da9131afdf8a37050417d0ccad3068c3d613dc69e"
   },
   {
     "id": "problem-10015",
@@ -301,10 +328,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/100/10015.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Joseph’s Cousin",
+    "originalSha256": "0ce2e69b9df34c8196532981ff894f0eb56118a7b055720e75650c73052734b8"
   },
   {
     "id": "problem-10036",
@@ -329,10 +359,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/100/10036.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Divisibility",
+    "originalSha256": "6179f2ac5caf52e79f09be224a59a3bebca5f42bd69609be38a880cf62466b3b"
   },
   {
     "id": "problem-10074",
@@ -357,10 +390,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/100/10074.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Take the Land",
+    "originalSha256": "ee55e9389f5217fc75b661460cf21e6256852a00359d7dfceb3b07fd6d62d44c"
   },
   {
     "id": "problem-10081",
@@ -385,10 +421,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/100/10081.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Tight words",
+    "originalSha256": "7dda6f35ac5273501470ec748cecd253cac1f2e559a4bd4a148abe468f0a54a4"
   },
   {
     "id": "problem-10110",
@@ -412,10 +451,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/101/10110.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Light, more light",
+    "originalSha256": "5e334c730162a56722a8dc5e2ffa3fe64fa979c9f07b67662e24530d3ed4c949"
   },
   {
     "id": "problem-10125",
@@ -440,10 +482,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/101/10125.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Sumsets",
+    "originalSha256": "9248fdf3526ad2abfb17a6e9a277d69949e01bb2cfec998599454829ffdd272d"
   },
   {
     "id": "problem-10162",
@@ -468,10 +513,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/101/10162.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Last Digit",
+    "originalSha256": "0e37f240dcab77313382077f77d36fd4b4dad77b4c5561798e244f373816400b"
   },
   {
     "id": "problem-10169",
@@ -484,7 +532,7 @@
       "機率",
       "預處理"
     ],
-    "summary": "依現有程式：逐步更新事件發生的機率，並追蹤極小連乘機率需要的小數位數。完整事件定義待原文核對。",
+    "summary": "兩個甕起初分別有 1 顆與 2 顆球，各有 1 顆紅球；每輪各抽一顆、放回後各加一顆白球。求 N 輪內至少一次兩顆都紅的機率，以及每輪都抽到兩顆紅球的機率在小數點後連續有幾個零。",
     "steps": [
       "每一步設 t = 1/(i(i+1))。",
       "累乘未發生機率 p[i] = (1-t)p[i-1]，輸出 1-p[n]。",
@@ -496,10 +544,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/101/10169.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "compile-error",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Urn-ball Probabilities!",
+    "originalSha256": "5e3ed495f3f749eeda4bc771591152cae3b5e01633c54f1933402a1183692a02"
   },
   {
     "id": "problem-10170",
@@ -524,10 +575,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/101/10170.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "The Hotel with Infinite Rooms",
+    "originalSha256": "09793e3626c77a6d50b2305253db542ce12506125fdafee709d3bc5c94dec0f4"
   },
   {
     "id": "problem-10182",
@@ -552,10 +606,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/101/10182.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Bee Maja",
+    "originalSha256": "fc90715343b3cf6d3b5dd083b7e8c696e2fb90916fbbafc6cabda0901b1cce79"
   },
   {
     "id": "problem-10188",
@@ -580,10 +637,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/101/10188.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Automated Judge Script",
+    "originalSha256": "3bb1b0af44a5f93f54352830ebd6978f910582f143736dcc1bf990851c15b9e3"
   },
   {
     "id": "problem-10193",
@@ -608,10 +668,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/101/10193.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "All You Need Is Love",
+    "originalSha256": "50f41548bcce74bdc89c34b36d009cf3bb361bb27f79d39d9ace47e198617b87"
   },
   {
     "id": "problem-10209",
@@ -636,10 +699,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/102/10209.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Is This Integration?",
+    "originalSha256": "8083b192afb711295805d44bb5a255992793a3791a41ffd36e2a5e66ddde95f5"
   },
   {
     "id": "problem-10220",
@@ -664,10 +730,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/102/10220.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "I Love Big Numbers!",
+    "originalSha256": "482e2577be70ca8bf149d71744e22110824bce1903908df578a9b9696776d82c"
   },
   {
     "id": "problem-10252",
@@ -692,10 +761,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/102/10252.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Common Permutation",
+    "originalSha256": "1fed2ba8a8ff36830e342742e520be9f6216f6ed5d76b17272056337f21c717d"
   },
   {
     "id": "problem-10295",
@@ -720,10 +792,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/102/10295.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Hay Points",
+    "originalSha256": "eb2c263fcee03626d95c924781b8e6f3e3dfb9ef6e185e28bbddb46ba293699a"
   },
   {
     "id": "problem-10308",
@@ -748,10 +823,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/103/10308.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Roads in the North",
+    "originalSha256": "020a8fe67783b54e53c745eda6d40f19a89901834210679278a25957217e53d3"
   },
   {
     "id": "problem-10324",
@@ -776,10 +854,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/103/10324.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Zeros and Ones",
+    "originalSha256": "882dd517e959584edf870ce0b262f2946cd7a04cf02354ccb15db2d6f54e2599"
   },
   {
     "id": "problem-10336",
@@ -804,10 +885,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/103/10336.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Rank the Languages",
+    "originalSha256": "65a01e02fbe954648fbc6b796ad21c2fba830fb011bcb43597d434f40ea55286"
   },
   {
     "id": "problem-10404",
@@ -832,10 +916,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/104/10404.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Bachet’s Game",
+    "originalSha256": "edb32eb087a63860b8c2d69038ad177350c8d27dfc5c3890ed461fc7a62b798f"
   },
   {
     "id": "problem-10405",
@@ -860,10 +947,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/104/10405.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Longest Common Subsequence",
+    "originalSha256": "b7f77929424d0e64f268dda65fdd462af54cc367cd505cde70a7b0d97fd0918f"
   },
   {
     "id": "problem-10409",
@@ -887,10 +977,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/104/10409.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Die Game",
+    "originalSha256": "190c1da74c2751381b77eb70280f2e17275c41b7a35de27a0a5966df5764561f"
   },
   {
     "id": "problem-10533",
@@ -915,10 +1008,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/105/10533.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Digit Primes",
+    "originalSha256": "9d637682645fb453ee86bdbd07eb296881b9c84eaf7d6de9c69a7d4d1b6e4159"
   },
   {
     "id": "problem-10664",
@@ -939,14 +1035,17 @@
     ],
     "complexity": "O(NS) 時間，O(S) 空間。原碼表格固定為 201。",
     "pitfalls": [
-      "原碼直接寫入 dp[k+i]，沒有檢查索引上限；不能把這份歷史程式當作已驗證版本。"
+      "原題保證所有行李總重不超過 200，固定 201 格表在此索引上限內可用；更新重量仍須由大到小，避免重複使用同一件行李。"
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/106/10664.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Luggage",
+    "originalSha256": "7ddd5249460ea51273f7698ae34967f9a181df4e96547caac683404ecf94d5a4"
   },
   {
     "id": "problem-10718",
@@ -971,10 +1070,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/107/10718.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Bit Mask",
+    "originalSha256": "4db9c50b1bd16cc26183e46b31d7c519d7288675052821667c3fb17b460d98d6"
   },
   {
     "id": "problem-10908",
@@ -999,10 +1101,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/109/10908.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Largest Square",
+    "originalSha256": "ed5dfaba03a1e4f5e975cbd7922f4afcc2dccd4c8fa312202ec0d44313947d7d"
   },
   {
     "id": "problem-10912",
@@ -1027,10 +1132,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/109/10912.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Simple Minded Hashing",
+    "originalSha256": "18b3204df514032a1cef28008f51eb0aae3f8b8f352ef28c16e89b16ed24d645"
   },
   {
     "id": "problem-11150",
@@ -1055,10 +1163,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/111/11150.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Cola",
+    "originalSha256": "8d92fdfcd58d12933948b05e341c0b31ca41116b825f0e516c757c108a8846ff"
   },
   {
     "id": "problem-11286",
@@ -1079,14 +1190,17 @@
     ],
     "complexity": "平均 O(N) 時間與 O(N) 空間（每人固定五門課，雜湊均攤）。",
     "pitfalls": [
-      "若最高頻率並列，要加總人數；原碼直接串接數字，依賴課號固定長度才不會碰撞。"
+      "原題課號為 100 到 499，都是三位數，所以排序後串接有明確邊界；最高頻率並列時要加總學生人數。"
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/112/11286.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Conformity",
+    "originalSha256": "d780adaeebd319f91566751a719a6b0a39b71f5bf86fd527b77dd0d5eb48f6ca"
   },
   {
     "id": "problem-11309",
@@ -1111,10 +1225,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/113/11309.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Counting Chaos",
+    "originalSha256": "054439d8c7e2c1f2caeae69268bec6ba63ec7464bc2430ced5fd5250bba336b6"
   },
   {
     "id": "problem-11413",
@@ -1139,10 +1256,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/114/11413.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Fill the Containers",
+    "originalSha256": "039efeb36aab0914819dad510f478aefcf68d77cf9195db81d326e558ee06f4f"
   },
   {
     "id": "problem-11634",
@@ -1167,10 +1287,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/116/11634.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Generate random numbers",
+    "originalSha256": "4e234e6d2a88a67f4bb505761918d104f463a47ca9a459275393431174c73296"
   },
   {
     "id": "problem-12503",
@@ -1195,10 +1318,13 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/125/12503.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Robot Instructions",
+    "originalSha256": "ebca452df0dc90d83e5aba3bf69b6adaba442dba8c7438c6acafa342b5df4546"
   },
   {
     "id": "problem-24941",
@@ -1391,9 +1517,12 @@
     ],
     "source": "UVa",
     "originalUrl": "https://onlinejudge.org/external/12/1210.pdf",
-    "originalStatus": "unverified",
+    "originalStatus": "verified",
     "editorialStatus": "code-derived",
     "codeStatus": "syntax-passed",
-    "codeCheckedAt": "2026-10-27"
+    "codeCheckedAt": "2026-10-27",
+    "sourceCheckedAt": "2026-10-27",
+    "originalTitle": "Sum of Consecutive Prime Numbers",
+    "originalSha256": "8ac7a5b8c56aed532555bf94a3844023dca28a5d8fe6ed429214b0f96f59aee7"
   }
 ]

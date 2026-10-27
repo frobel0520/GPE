@@ -40,6 +40,8 @@ class CatalogTests(unittest.TestCase):
                 self.assertEqual(p['editorialStatus'], 'code-derived')
                 if p['originalStatus'] == 'verified':
                     self.assertTrue(p.get('sourceCheckedAt'))
+                    self.assertTrue(p.get('originalTitle'))
+                    self.assertRegex(p.get('originalSha256', ''), r'^[a-f0-9]{64}$')
 
     def test_ambiguous_numbers_are_not_linked_to_an_unrelated_uva_problem(self):
         for p in self.problems:
@@ -88,7 +90,8 @@ class CatalogTests(unittest.TestCase):
 
     def test_missing_solutions_and_fake_verification_fail_build(self):
         self.assert_rejected(lambda p: p.update(file='../outside.cpp'))
-        self.assert_rejected(lambda p: p.update(originalStatus='verified'))
+        self.assert_rejected(lambda p: p.update(originalStatus='verified', sourceCheckedAt=''))
+        self.assert_rejected(lambda p: p.update(originalStatus='verified', originalSha256=''))
         self.assert_rejected(lambda p: p.update(steps=[]))
 
 
