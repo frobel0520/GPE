@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GPE 程式練習題庫：題意、解題思路與原始程式碼。">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; frame-src https://onlinejudge.org https://www.onlinejudge.org https://zerojudge.tw; object-src 'none'; base-uri 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>GPE — 解題筆記</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳至主要內容</a>
+  <header class="site-header">
+    <a class="brand" href="#/" aria-label="GPE 題庫首頁"><span class="brand-mark">g.</span><span>GPE<span class="brand-divider"> / </span><span class="brand-subtitle">解題筆記</span></span></a>
+  </header>
+  <main id="main" tabindex="-1">
+    <section id="catalog" aria-labelledby="catalog-heading">
+      <div class="intro">
+        <div><p class="eyebrow">THE PRACTICE COLLECTION</p><h1 id="catalog-heading" tabindex="-1">題目列表</h1><p class="intro-copy">查看題意、解題步驟與原始碼。</p></div>
+        <div class="collection-stamp"><strong id="total-count">—</strong><span>道解題筆記</span><span class="stamp-line">C++ & Python</span></div>
+      </div>
+      <div class="catalog-layout">
+        <aside class="filters" aria-label="題目篩選">
+          <label class="filter-label" for="query">尋找一道題</label>
+          <div class="search-wrap"><span aria-hidden="true">⌕</span><input id="query" type="search" placeholder="題號、名稱或關鍵字" autocomplete="off"></div>
+          <label class="filter-label" for="language">程式語言</label>
+          <select id="language"><option value="">全部語言</option>C++</option><option>Python</option></select>
+          <label class="filter-label" for="tag">解題主題</label>
+          <select id="tag"><option value="">全部主題</option></select>
+          <button id="reset" class="text-button" type="button">清除篩選 ↗</button>
+          <div class="sidebar-note"><span class="small-label">閱讀順序</span><p>先讀題意，試著想想。<br>卡住了再打開解題步驟，<br>最後對照程式碼。</p></div>
+        </aside>
+        <div class="problem-list-wrap">
+          <div class="list-toolbar"><span id="result-count" role="status" aria-live="polite">載入題庫中…</span><span class="small-label">THE PROBLEM INDEX</span></div>
+          <div id="problem-list" class="problem-list"></div>
+          <div id="empty" class="empty-state" hidden><h2>還沒找到這道題</h2><p>試試其他題號、名稱，或清除篩選。</p><button id="empty-reset" type="button" class="primary-button">顯示全部題目</button></div>
+          <div id="load-error" class="notice error" role="alert" hidden><strong>題庫載入失敗</strong><p>請確認網站已完成建置，再重新載入頁面。</p><button id="retry" type="button" class="text-button">重新載入</button></div>
+        </div>
+      </div>
+    </section>
+    <article id="detail" hidden aria-labelledby="detail-title"></article>
+  </main>
+  <footer><span>GPE · Programming Practice</span></footer>
+  <noscript><p>題庫搜尋與詳情需要啟用 JavaScript。</p></noscript>
+</body>
+</html>

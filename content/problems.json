@@ -1,0 +1,1399 @@
+[
+  {
+    "id": "problem-147",
+    "file": "147 - Dollars.cpp",
+    "number": "147",
+    "title": "Dollars",
+    "titleZh": "錢幣組合",
+    "language": "C++",
+    "tags": [
+      "動態規劃",
+      "計數"
+    ],
+    "summary": "給一個金額，計算用指定的 11 種面額湊出它的方法數；相同錢幣組合只算一次。",
+    "steps": [
+      "把金額轉成整數分，設定 dp[0] = 1。",
+      "逐一處理每種面額，由小到大更新 dp[s] += dp[s-coin]。",
+      "查表並依固定欄寬輸出金額與組合數。"
+    ],
+    "complexity": "預處理 O(CA)，查詢 O(1)；空間 O(A)。C 為面額數，A 為最大金額。",
+    "pitfalls": [
+      "金額不要用浮點數當索引；面額放外圈才不會把排列重複計數。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/1/147.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-151",
+    "file": "151 - Power Crisis.cpp",
+    "number": "151",
+    "title": "Power Crisis",
+    "titleZh": "停電順序",
+    "language": "C++",
+    "tags": [
+      "模擬",
+      "約瑟夫環"
+    ],
+    "summary": "多個地區排成圓圈，從第一區開始依固定間隔停電，找出讓第 13 區最後停電的最小間隔。",
+    "steps": [
+      "由間隔 1 開始枚舉。",
+      "用陣列記錄還有電的地區，循環數到指定間隔就刪除一區。",
+      "若第 13 區前已刪除其他所有區，輸出間隔。"
+    ],
+    "complexity": "一次候選模擬 O(N²m) 上界；搜尋總時間還取決於嘗試的間隔 m。空間 O(N)。",
+    "pitfalls": [
+      "程式內的第 13 區用索引 12 表示；只對仍存活的地區計數。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/1/151.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-166",
+    "file": "166 - Making Change.cpp",
+    "number": "166",
+    "title": "Making Change",
+    "titleZh": "付款與找零",
+    "language": "C++",
+    "tags": [
+      "動態規劃",
+      "背包"
+    ],
+    "summary": "錢包內各種硬幣數量有限，店家可找零；求完成付款時雙方交出硬幣總數的最小值。",
+    "steps": [
+      "把面額與價格縮成以 5 分為單位。",
+      "依錢包數量做有限背包，求各付款額最少硬幣數；另建店家找零表。",
+      "枚舉付款額，合併付款與找零硬幣數。"
+    ],
+    "complexity": "付款表 O(AS)，找零表 O(AC)，空間 O(A)。S 為錢包硬幣總數。",
+    "pitfalls": [
+      "原碼只搜尋付款額小於 101 單位的範圍，且表格有固定大小；需依原題限制確認是否足夠。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/1/166.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-256",
+    "file": "256 - Quirksome Squares.cpp",
+    "number": "256",
+    "title": "Quirksome Squares",
+    "titleZh": "奇妙平方數",
+    "language": "C++",
+    "tags": [
+      "枚舉",
+      "數學"
+    ],
+    "summary": "把偶數位數的數字切成左右兩半，找出兩半相加的平方恰好等於原數的所有數字。",
+    "steps": [
+      "令半邊長度為 k，基底 B = 10^k。",
+      "枚舉左半 a 與右半 b，檢查 (a+b)² = aB+b。",
+      "將左右兩半各補到 k 位後輸出。"
+    ],
+    "complexity": "O(B²k) 上界，儲存答案 O(Rk)。R 為答案數。",
+    "pitfalls": [
+      "輸出必須保留前導零；8 位數時原碼會枚舉一億組，並非最佳化版本。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/2/256.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-378",
+    "file": "378 - Unique Lines.cpp",
+    "number": "378",
+    "title": "Unique Lines",
+    "titleZh": "不重複直線",
+    "language": "C++",
+    "tags": [
+      "幾何",
+      "集合"
+    ],
+    "summary": "依現有程式：給平面上的點，計算由任意兩點決定的不重複直線數。",
+    "steps": [
+      "枚舉每一對點，求方向差 dx、dy。",
+      "用最大公因數約分並統一方向正負號，再算 dy*x-dx*y。",
+      "將方向與截距一起放入集合，輸出集合大小。"
+    ],
+    "complexity": "O(N²(log D + log N))，空間 O(N²)。D 為座標差範圍。",
+    "pitfalls": [
+      "這個檔名不能直接當成 UVa 378；重複點會造成除以零，座標乘積也需注意溢位。"
+    ],
+    "source": "待確認",
+    "originalUrl": null,
+    "originalStatus": "unknown",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-382",
+    "file": "382 - Perfection.cpp",
+    "number": "382",
+    "title": "Perfection",
+    "titleZh": "完全數分類",
+    "language": "C++",
+    "tags": [
+      "枚舉",
+      "數學"
+    ],
+    "summary": "把一個正整數的真因數加總，判斷它是不足數、完全數，還是過剩數。",
+    "steps": [
+      "枚舉 1 到 N/2，累加能整除 N 的數。",
+      "比較因數和與 N 的大小。",
+      "依題目格式輸出分類與起訖標題。"
+    ],
+    "complexity": "O(N) 時間，O(1) 額外空間。",
+    "pitfalls": [
+      "真因數不包含自己；N = 1 的因數和是 0。原碼按最多 5 位數排版。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/3/382.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-572",
+    "file": "572 - Oil Deposit.cpp",
+    "number": "572",
+    "title": "Oil Deposit",
+    "titleZh": "油田有幾塊",
+    "language": "C++",
+    "tags": [
+      "圖論",
+      "DFS"
+    ],
+    "summary": "地圖上 @ 代表油；上下左右與斜對角相接的油格屬於同一塊，求總塊數。",
+    "steps": [
+      "掃描所有格子，遇到尚未走訪的 @ 就新增一塊。",
+      "從該格 DFS，沿八個方向標記相連的油格。",
+      "掃描結束後輸出連通塊數。"
+    ],
+    "complexity": "O(RC) 時間，O(RC) 空間（含遞迴堆疊）。",
+    "pitfalls": [
+      "這題是八方向相連；原碼重複測資未清空地圖邊框，需留意前一張較大地圖的殘留資料。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/5/572.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-719",
+    "file": "719 - Glass Beads.cpp",
+    "number": "719",
+    "title": "Glass Beads",
+    "titleZh": "最小字典序旋轉",
+    "language": "C++",
+    "tags": [
+      "字串",
+      "雙指標"
+    ],
+    "summary": "把一串珠子視為環狀字串，找出旋轉後字典序最小的起始位置。",
+    "steps": [
+      "用兩個候選起點，逐字比較環狀位置。",
+      "第一個不同字元決定哪個候選較差，一次跳過已排除的起點。",
+      "重設比較長度，直到找到最小起點，轉成 1-based 輸出。"
+    ],
+    "complexity": "O(N) 時間，O(N) 空間。",
+    "pitfalls": [
+      "字串可能具有週期；相同旋轉時要依題目規則取起點，且輸出索引從 1 開始。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/7/719.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-900",
+    "file": "900 - Brick Wall Patterns.cpp",
+    "number": "900",
+    "title": "Brick Wall Patterns",
+    "titleZh": "磚牆排列",
+    "language": "C++",
+    "tags": [
+      "動態規劃",
+      "數學"
+    ],
+    "summary": "用指定尺寸的磚填滿固定寬度、長度為 N 的牆，計算不同鋪法數。",
+    "steps": [
+      "從最後一段看，排列可由長度 N-1 與 N-2 的排列延伸。",
+      "設定 f[0] = f[1] = 1，預先計算 f[n] = f[n-1]+f[n-2]。",
+      "輸入 N 後直接查表。"
+    ],
+    "complexity": "預處理 O(M)，查詢 O(1)，空間 O(M)。M 為最大長度。",
+    "pitfalls": [
+      "原碼使用 int，N 較大時斐波那契數會超出範圍；應先確認原題上限。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/9/900.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10007",
+    "file": "10007 - Count the Trees.py",
+    "number": "10007",
+    "title": "Count the Trees",
+    "titleZh": "計算二元樹",
+    "language": "Python",
+    "tags": [
+      "組合數學",
+      "大整數"
+    ],
+    "summary": "給 N 個不同標記，求可形成的有序二元樹數量。",
+    "steps": [
+      "形狀數是 Catalan 數，再乘上 N! 種標記排列。",
+      "化簡為 (2N)!/(N+1)!。",
+      "直接連乘 N+2 到 2N，用 Python 大整數輸出。"
+    ],
+    "complexity": "O(N) 次大整數乘法；實際時間與空間取決於答案位數。",
+    "pitfalls": [
+      "空乘積為 1；這是形狀加標記的計數，不能只算 Catalan 數。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/100/10007.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "unverified"
+  },
+  {
+    "id": "problem-10015",
+    "file": "10015 - Joseph's Cousin.cpp",
+    "number": "10015",
+    "title": "Joseph's Cousin",
+    "titleZh": "質數約瑟夫環",
+    "language": "C++",
+    "tags": [
+      "質數",
+      "模擬"
+    ],
+    "summary": "N 個人圍成圈，每輪以接下來的一個質數當報數間隔，找最後留下的人。",
+    "steps": [
+      "先篩出依序遞增的質數。",
+      "建立存活人員列表，每輪把索引加上質數減一並取模。",
+      "刪除對應位置，直到只剩一人。"
+    ],
+    "complexity": "篩表約 O(M log M)，刪除模擬 O(N²)；空間 O(M+N)。",
+    "pitfalls": [
+      "刪除後從原位置接著數；原篩法會處理所有整數的倍數，複雜度不同於只篩質數的版本。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/100/10015.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10036",
+    "file": "10036 - Divisibility.cpp",
+    "number": "10036",
+    "title": "Divisibility",
+    "titleZh": "加減後能否整除",
+    "language": "C++",
+    "tags": [
+      "動態規劃",
+      "餘數"
+    ],
+    "summary": "在一串整數之間選擇加或減，判斷是否能讓最後結果被 K 整除。",
+    "steps": [
+      "只記錄計算結果除以 K 的餘數。",
+      "從餘數 0 出發，對每個數字轉移到加上與減去它的兩種餘數。",
+      "最後查看餘數 0 是否可達。"
+    ],
+    "complexity": "O(NK) 時間，原碼 O(NK) 空間。",
+    "pitfalls": [
+      "負數取模要正規化；只存餘數即可，不必枚舉所有可能總和。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/100/10036.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10074",
+    "file": "10074 - Take the Land.cpp",
+    "number": "10074",
+    "title": "Take the Land",
+    "titleZh": "最大空地矩形",
+    "language": "C++",
+    "tags": [
+      "動態規劃",
+      "前綴和"
+    ],
+    "summary": "在 0／1 地圖中，找出只包含 0 的最大長方形面積。",
+    "steps": [
+      "把空地換成 1，障礙換成很大的負數，建立各欄垂直前綴和。",
+      "枚舉上下邊界，把該區間壓成一維陣列。",
+      "用最大連續子陣列和找最佳矩形。"
+    ],
+    "complexity": "O(R²C) 時間，O(RC) 空間。",
+    "pitfalls": [
+      "原碼用 -1000 代表障礙，必須依地圖尺寸核對懲罰是否足以排除所有含障礙矩形。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/100/10074.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10081",
+    "file": "10081 - Tight Words.cpp",
+    "number": "10081",
+    "title": "Tight Words",
+    "titleZh": "相鄰數字差不超過一",
+    "language": "C++",
+    "tags": [
+      "動態規劃",
+      "機率"
+    ],
+    "summary": "從 0 到 K 等機率取數字組成長度 N 的字串，求任兩個相鄰數字差都不超過 1 的百分比。",
+    "steps": [
+      "令 dp[len][d] 是合法字串以 d 結尾的機率。",
+      "第一位各為 1/(K+1)，往後只從差不超過 1 的前一位轉移。",
+      "加總長度 N 的機率並乘 100。"
+    ],
+    "complexity": "原碼 O(NK²) 時間，O(NK) 空間。",
+    "pitfalls": [
+      "要乘上每次抽到數字的機率；百分比依規定保留五位小數。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/100/10081.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10110",
+    "file": "10110 - Light, more light.cpp",
+    "number": "10110",
+    "title": "Light, more light",
+    "titleZh": "燈泡最後亮嗎",
+    "language": "C++",
+    "tags": [
+      "數學"
+    ],
+    "summary": "第 i 輪切換編號是 i 倍數的燈，問第 N 個燈最後是否亮著。",
+    "steps": [
+      "燈 N 被切換的次數等於 N 的因數個數。",
+      "非平方數的因數成對，只有完全平方數有奇數個因數。",
+      "取整數平方根並檢查平方是否等於 N。"
+    ],
+    "complexity": "固定寬整數下 O(1) 時間與空間。",
+    "pitfalls": [
+      "浮點平方根在更大整數範圍可能有誤差；本程式輸入以 0 結束。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/101/10110.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10125",
+    "file": "10125 - Sumsets.cpp",
+    "number": "10125",
+    "title": "Sumsets",
+    "titleZh": "三數和的最大結果",
+    "language": "C++",
+    "tags": [
+      "枚舉",
+      "排序"
+    ],
+    "summary": "從集合選出四個不同元素 a、b、c、d，滿足 a+b+c=d，求最大的 d。",
+    "steps": [
+      "先排序，從最大的 d 往下試。",
+      "枚舉三個索引 i<j<k，並排除與 d 相同的索引。",
+      "找到第一組就回傳，否則輸出 no solution。"
+    ],
+    "complexity": "原碼最壞 O(N⁴) 時間，O(N) 儲存。",
+    "pitfalls": [
+      "這是直接暴力版本，不是常見的配對和最佳化；不同元素指的是不同索引。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/101/10125.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10162",
+    "file": "10162 - Last Digit.cpp",
+    "number": "10162",
+    "title": "Last Digit",
+    "titleZh": "冪次和的個位數",
+    "language": "C++",
+    "tags": [
+      "數學",
+      "週期"
+    ],
+    "summary": "給很大的 N，求 1^1+2^2+…+N^N 的個位數。",
+    "steps": [
+      "預先列出 i^i 的個位數週期。",
+      "累加得到總和的 100 項循環表。",
+      "輸入當字串，只取最後兩位作索引。"
+    ],
+    "complexity": "預處理 O(100²)，每筆讀入 O(L)，額外空間 O(L)。L 為輸入位數。",
+    "pitfalls": [
+      "不能把很長的 N 直接轉整數；表格索引代表累加到 N，而不是第 N 項。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/101/10162.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10169",
+    "file": "10169 - Urn-ball Probabilities.cpp",
+    "number": "10169",
+    "title": "Urn-ball Probabilities",
+    "titleZh": "甕與球的機率",
+    "language": "C++",
+    "tags": [
+      "機率",
+      "預處理"
+    ],
+    "summary": "依現有程式：逐步更新事件發生的機率，並追蹤極小連乘機率需要的小數位數。完整事件定義待原文核對。",
+    "steps": [
+      "每一步設 t = 1/(i(i+1))。",
+      "累乘未發生機率 p[i] = (1-t)p[i-1]，輸出 1-p[n]。",
+      "另一個乘積低於 1 時乘 10 並累計縮放次數。"
+    ],
+    "complexity": "預處理 O(M+Z)，查詢 O(1)，空間 O(M)。Z 為總縮放次數。",
+    "pitfalls": [
+      "原檔使用未定義的 N，無法直接編譯；scanf 的 EOF 判斷也需要修正後再驗證。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/101/10169.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "compile-error",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10170",
+    "file": "10170 - The Hotel with Infinite Rooms.cpp",
+    "number": "10170",
+    "title": "The Hotel with Infinite Rooms",
+    "titleZh": "無限房間的旅館",
+    "language": "C++",
+    "tags": [
+      "模擬",
+      "數學"
+    ],
+    "summary": "從大小為 S 的團體開始，每一團比前一團多一人，並依團體大小占用天數；問第 D 天輪到多大的團體。",
+    "steps": [
+      "若 D 大於目前團體大小，就扣掉這一團的天數。",
+      "把團體大小加一，繼續處理剩餘天數。",
+      "D 落在目前團體內時，輸出目前大小。"
+    ],
+    "complexity": "O(G) 時間，O(1) 空間。G 為跨過的團體數。",
+    "pitfalls": [
+      "D 剛好等於目前團體大小時仍屬於這一團，條件要用大於而非大於等於。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/101/10170.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10182",
+    "file": "10182 - Bee Maja.cpp",
+    "number": "10182",
+    "title": "Bee Maja",
+    "titleZh": "蜂巢座標",
+    "language": "C++",
+    "tags": [
+      "幾何",
+      "模擬"
+    ],
+    "summary": "蜂巢格依六角螺旋編號，給編號，找對應的平面座標。",
+    "steps": [
+      "中心編號 1 對應 (0,0)。",
+      "逐層沿六個方向走，進入新一層時增加邊長。",
+      "每走一格扣掉剩餘編號，抵達目標就輸出座標。"
+    ],
+    "complexity": "O(N) 時間，O(1) 空間。",
+    "pitfalls": [
+      "六角座標不是一般四方向格子；層與層銜接的第一步要另外處理。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/101/10182.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10188",
+    "file": "10188 - Automated Judge Script.cpp",
+    "number": "10188",
+    "title": "Automated Judge Script",
+    "titleZh": "自動評分腳本",
+    "language": "C++",
+    "tags": [
+      "字串",
+      "模擬"
+    ],
+    "summary": "比較標準答案與提交輸出：完全相同為 Accepted，只有非數字差異為 Presentation Error，否則 Wrong Answer。",
+    "steps": [
+      "依行數讀入兩份輸出並保留行間換行。",
+      "先檢查完整字串是否相同。",
+      "若不同，刪掉非數字字元後比較數字序列。"
+    ],
+    "complexity": "原碼反覆 erase 最壞 O(L²) 時間，O(L) 空間。",
+    "pitfalls": [
+      "不是逐個數值解析；題目比較的是保留下來的數字字元序列。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/101/10188.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10193",
+    "file": "10193 - All You Need Is Love.cpp",
+    "number": "10193",
+    "title": "All You Need Is Love",
+    "titleZh": "二進位的最大公因數",
+    "language": "C++",
+    "tags": [
+      "數學",
+      "最大公因數"
+    ],
+    "summary": "給兩個二進位數，判斷它們是否有大於 1 的共同因數，並輸出指定訊息。",
+    "steps": [
+      "把兩個字串當二進位轉成整數。",
+      "用歐幾里得演算法求 gcd。",
+      "依 gcd 是否大於 1 輸出對應訊息及組別。"
+    ],
+    "complexity": "O(L+log V) 時間，O(L+log V) 空間（含輸入與遞迴）。",
+    "pitfalls": [
+      "原碼用 stoi，位元長度必須在 int 可表示範圍內。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/101/10193.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10209",
+    "file": "10209 - Is This Integration.cpp",
+    "number": "10209",
+    "title": "Is This Integration",
+    "titleZh": "正方形中的圓弧面積",
+    "language": "C++",
+    "tags": [
+      "幾何",
+      "數學"
+    ],
+    "summary": "在正方形四個角畫指定圓弧，計算圖中三類區域的面積。各區域對照需要搭配原題圖。",
+    "steps": [
+      "利用對稱性把相同區塊合併。",
+      "用扇形與三角形面積推導三種區域公式。",
+      "將邊長平方乘上各公式係數，依序輸出三位小數。"
+    ],
+    "complexity": "O(1) 時間與空間。",
+    "pitfalls": [
+      "輸出是 x、4y、4z，不能把單塊面積誤當總面積；區域標示需核對原圖。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/102/10209.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10220",
+    "file": "10220 - I Love Big Numbers.cpp",
+    "number": "10220",
+    "title": "I Love Big Numbers",
+    "titleZh": "階乘的數字和",
+    "language": "C++",
+    "tags": [
+      "大整數",
+      "預處理"
+    ],
+    "summary": "求 N! 十進位表示中所有數字的總和。例如 4! = 24，答案是 2+4 = 6，而不是輸出階乘本身。",
+    "steps": [
+      "用陣列由低位到高位儲存大整數。",
+      "每次乘上下一個整數，再處理進位與新增位數。",
+      "存下每個階乘的各位數和，輸入時直接查表。"
+    ],
+    "complexity": "O(MD) 預處理時間，O(M+D) 空間。D 為 M! 的位數。",
+    "pitfalls": [
+      "進位可能連續產生新位數；要在處理進位後累計每一位。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/102/10220.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10252",
+    "file": "10252 - Common Permutation.cpp",
+    "number": "10252",
+    "title": "Common Permutation",
+    "titleZh": "共同字母排列",
+    "language": "C++",
+    "tags": [
+      "字串",
+      "計數"
+    ],
+    "summary": "給兩行小寫字母，找出兩者共有的字母多重集合，按字母順序輸出。",
+    "steps": [
+      "分別統計兩行的 26 個字母次數。",
+      "每個字母取兩邊次數的最小值。",
+      "由 a 到 z 輸出對應份數。"
+    ],
+    "complexity": "O(A+B) 時間，O(A+B) 儲存輸入，字母表額外空間 O(1)。",
+    "pitfalls": [
+      "重複字母要保留共同份數；空行也是合法的讀入情況。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/102/10252.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10295",
+    "file": "10295 - Hay Points.cpp",
+    "number": "10295",
+    "title": "Hay Points",
+    "titleZh": "職務描述計分",
+    "language": "C++",
+    "tags": [
+      "字串",
+      "映射"
+    ],
+    "summary": "先給單字與薪資點數表，再為每段職務描述加總其中所有已知單字的點數。",
+    "steps": [
+      "用 map 儲存單字分數。",
+      "逐字讀取描述，直到單獨的句點。",
+      "查表累加並輸出該段總分。"
+    ],
+    "complexity": "O((M+W)log(M+W)) 時間，O(M+W) 空間。W 為描述單字數上界。",
+    "pitfalls": [
+      "原碼的 map 下標會把未知單字加入表中；重複出現的單字會重複計分。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/102/10295.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10308",
+    "file": "10308 - Roads in the North.cpp",
+    "number": "10308",
+    "title": "Roads in the North",
+    "titleZh": "最長道路路徑",
+    "language": "C++",
+    "tags": [
+      "樹",
+      "DFS"
+    ],
+    "summary": "道路構成帶權樹，求任意兩個節點間的最大距離，也就是樹的直徑。",
+    "steps": [
+      "用鄰接表建立無向帶權邊。",
+      "DFS 回傳每個子樹往下最長的單一路徑。",
+      "在每個節點合併兩條最長分支，更新全域直徑。"
+    ],
+    "complexity": "O(V+E) 時間，O(V+E) 空間。",
+    "pitfalls": [
+      "原碼固定從節點 1 出發，且空行後未重設 dirty；不含節點 1 或尾端空行時要特別驗證。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/103/10308.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10324",
+    "file": "10324 - Zeros and Ones.cpp",
+    "number": "10324",
+    "title": "Zeros and Ones",
+    "titleZh": "區間字元是否相同",
+    "language": "C++",
+    "tags": [
+      "字串",
+      "預處理"
+    ],
+    "summary": "給 0／1 字串與多個索引區間，判斷每個區間中的字元是否全部相同。",
+    "steps": [
+      "記錄每個位置結尾的相同字元連續長度。",
+      "查詢時先把兩端排序成 left、right。",
+      "若 right 的連續長度至少為區間長度，就回答 Yes。"
+    ],
+    "complexity": "O(N+Q) 時間，O(N) 空間。",
+    "pitfalls": [
+      "兩個查詢端點可能反向；區間長度要加 1。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/103/10324.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10336",
+    "file": "10336 - Rank the Languages.cpp",
+    "number": "10336",
+    "title": "Rank the Languages",
+    "titleZh": "語言區塊排行",
+    "language": "C++",
+    "tags": [
+      "圖論",
+      "DFS"
+    ],
+    "summary": "地圖上字母代表語言，四方向相連的同字母算一區；依各語言區塊數由多到少排行，同分按字母排序。",
+    "steps": [
+      "掃描未走訪格子，為該語言新增一區。",
+      "以四方向 DFS 標記同語言區域。",
+      "依區塊數降序，再以字母升序輸出。"
+    ],
+    "complexity": "O(RC+BΣ) 時間，O(RC) 空間。B 為最大區塊數，Σ=26。",
+    "pitfalls": [
+      "與油田題不同，這裡沒有斜向連通；原 DFS 缺少邊界檢查，邊緣格可能讀取陣列外資料。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/103/10336.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10404",
+    "file": "10404 - Bachet's Game.cpp",
+    "number": "10404",
+    "title": "Bachet's Game",
+    "titleZh": "取石子必勝策略",
+    "language": "C++",
+    "tags": [
+      "動態規劃",
+      "賽局"
+    ],
+    "summary": "兩人輪流從石堆拿走允許數量的石子，無法行動的人輸；判斷先手是否必勝。",
+    "steps": [
+      "令 dp[0] 為必敗。",
+      "對每個石子數，嘗試所有合法拿取量。",
+      "只要能走到對手的必敗狀態，目前狀態就是必勝。"
+    ],
+    "complexity": "O(NK) 時間，O(N+K) 空間。",
+    "pitfalls": [
+      "不能只看能拿最多顆的選擇；狀態代表輪到目前玩家時的勝負。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/104/10404.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10405",
+    "file": "10405 - Longest Common Subsequence.cpp",
+    "number": "10405",
+    "title": "Longest Common Subsequence",
+    "titleZh": "最長共同子序列",
+    "language": "C++",
+    "tags": [
+      "動態規劃",
+      "字串"
+    ],
+    "summary": "給兩行字串，求兩者共同子序列的最大長度；字元不需要相鄰但順序不能改。",
+    "steps": [
+      "建立兩個前綴的 LCS 長度表。",
+      "末字元相同則取左上加一，否則取上方與左方最大值。",
+      "輸出右下角答案。"
+    ],
+    "complexity": "O(AB) 時間與空間。",
+    "pitfalls": [
+      "子序列不等於子字串；要用 getline 保留空白與空行。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/104/10405.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10409",
+    "file": "10409 - Die Game.cpp",
+    "number": "10409",
+    "title": "Die Game",
+    "titleZh": "骰子滾動",
+    "language": "C++",
+    "tags": [
+      "模擬"
+    ],
+    "summary": "依照 north、south、east、west 指令滾動骰子，輸出最後頂面的點數。",
+    "steps": [
+      "用六個位置儲存骰子各面的數字。",
+      "每個方向循環交換四個相關面，先保存舊頂面。",
+      "執行所有指令後讀取頂面。"
+    ],
+    "complexity": "O(N) 時間，O(1) 空間。",
+    "pitfalls": [
+      "每組測資都要重設骰子；交換時不可覆蓋還沒使用的舊值。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/104/10409.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10533",
+    "file": "10533 - Digit Primes.cpp",
+    "number": "10533",
+    "title": "Digit Primes",
+    "titleZh": "數字和也是質數",
+    "language": "C++",
+    "tags": [
+      "質數",
+      "前綴和"
+    ],
+    "summary": "找出區間內本身是質數、且十進位各位數和也是質數的整數數量。",
+    "steps": [
+      "篩出範圍內所有質數。",
+      "對每個質數計算數字和，再查質數表。",
+      "建立累計個數表，用 prefix[R]-prefix[L-1] 回答。"
+    ],
+    "complexity": "約 O(M log log M + M log M) 預處理，查詢 O(1)，空間 O(M)。",
+    "pitfalls": [
+      "原碼建立前綴表時未檢查 digit_primes 的索引末端，可能越界；需修復後再確認結果。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/105/10533.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10664",
+    "file": "10664－Luggage.cpp",
+    "number": "10664",
+    "title": "Luggage",
+    "titleZh": "行李等重分組",
+    "language": "C++",
+    "tags": [
+      "動態規劃",
+      "背包"
+    ],
+    "summary": "把一組行李分成兩堆，判斷是否能讓總重量相同。",
+    "steps": [
+      "先算總重量，奇數立即回答 NO。",
+      "用 0/1 背包標記可湊出的重量，每件行李由大到小更新。",
+      "檢查總重量一半是否可達。"
+    ],
+    "complexity": "O(NS) 時間，O(S) 空間。原碼表格固定為 201。",
+    "pitfalls": [
+      "原碼直接寫入 dp[k+i]，沒有檢查索引上限；不能把這份歷史程式當作已驗證版本。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/106/10664.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10718",
+    "file": "10718 - Bit Mask.cpp",
+    "number": "10718",
+    "title": "Bit Mask",
+    "titleZh": "最佳位元遮罩",
+    "language": "C++",
+    "tags": [
+      "位元運算",
+      "貪心"
+    ],
+    "summary": "在 L 到 U 間選 M，使 N OR M 最大；若有多解，取最小 M。",
+    "steps": [
+      "從最高位往最低位決定 M。",
+      "若 N 此位為 0，盡量把 M 設成 1，但不能超過 U。",
+      "即使 N 此位為 1，若為了達到 L 而必須設位，也要補上。"
+    ],
+    "complexity": "O(B) 時間，O(1) 空間。B=32。",
+    "pitfalls": [
+      "原碼以帶符號的 1 做最高位移位並混合 unsigned 比較；維護時宜用 1u 明確表達無符號位元遮罩。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/107/10718.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10908",
+    "file": "10908 - Largest Square.cpp",
+    "number": "10908",
+    "title": "Largest Square",
+    "titleZh": "同字元最大正方形",
+    "language": "C++",
+    "tags": [
+      "枚舉",
+      "矩陣"
+    ],
+    "summary": "給一個中心格，求以它為中心、全部字元相同的最大正方形邊長。",
+    "steps": [
+      "先令答案為 1。",
+      "逐圈擴張半徑，確認邊界在地圖內且格子都和中心相同。",
+      "第一次失敗就停止，輸出最後成功的奇數邊長。"
+    ],
+    "complexity": "原碼每次重掃整個方形，單次查詢 O(K³)，地圖空間 O(RC)。",
+    "pitfalls": [
+      "中心固定所以邊長一定是奇數；只掃新外圈可改善時間，但原碼尚未這樣實作。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/109/10908.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-10912",
+    "file": "10912 - Simple Minded Hashing.cpp",
+    "number": "10912",
+    "title": "Simple Minded Hashing",
+    "titleZh": "遞增字母字串計數",
+    "language": "C++",
+    "tags": [
+      "動態規劃",
+      "計數"
+    ],
+    "summary": "a 到 z 的權重為 1 到 26，計算長度 L、字母嚴格遞增且權重和為 S 的字串數。",
+    "steps": [
+      "令 dp[i][len][sum] 記錄只使用前 i 個字母的方案數。",
+      "每個字母可選或不選，選時長度加一、總和加上權重。",
+      "預處理後查 dp[26][L][S]。"
+    ],
+    "complexity": "O(AL Smax) 預處理時間與空間，查詢 O(1)。A=26。",
+    "pitfalls": [
+      "嚴格遞增代表每個字母最多一次；長度超過 26 或和超過 351 直接為零。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/109/10912.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-11150",
+    "file": "11150 - Cola.cpp",
+    "number": "11150",
+    "title": "Cola",
+    "titleZh": "空瓶換可樂",
+    "language": "C++",
+    "tags": [
+      "模擬",
+      "貪心"
+    ],
+    "summary": "喝完可樂後，三個空瓶可換一瓶；允許最後借一個空瓶再歸還，求最多能喝幾瓶。",
+    "steps": [
+      "把手上的可樂喝完，加入空瓶數。",
+      "每三個空瓶換一瓶，保留餘下空瓶並重複。",
+      "若最後剩兩個空瓶，可再借一個換一瓶並用新空瓶歸還。"
+    ],
+    "complexity": "O(log N) 時間，O(1) 空間。",
+    "pitfalls": [
+      "借瓶只能在最後可歸還時使用，不能無限制增加可樂。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/111/11150.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-11286",
+    "file": "11286 - Conformity.cpp",
+    "number": "11286",
+    "title": "Conformity",
+    "titleZh": "最熱門選課組合",
+    "language": "C++",
+    "tags": [
+      "排序",
+      "映射"
+    ],
+    "summary": "每位學生選五門課，找出最常見的課程組合，統計選到任一並列熱門組合的學生總數。",
+    "steps": [
+      "將每位學生的五門課排序，統一組合表示。",
+      "用映射計數並找最高頻率。",
+      "加總所有達到最高頻率的組合人數。"
+    ],
+    "complexity": "平均 O(N) 時間與 O(N) 空間（每人固定五門課，雜湊均攤）。",
+    "pitfalls": [
+      "若最高頻率並列，要加總人數；原碼直接串接數字，依賴課號固定長度才不會碰撞。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/112/11286.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-11309",
+    "file": "11309 - Counting Chaos.cpp",
+    "number": "11309",
+    "title": "Counting Chaos",
+    "titleZh": "下一個回文時間",
+    "language": "C++",
+    "tags": [
+      "字串",
+      "模擬"
+    ],
+    "summary": "給一個時間，找出嚴格晚於它的下一個回文時間；判斷時忽略數值的前導零。",
+    "steps": [
+      "每次增加一分鐘，處理小時與跨日進位。",
+      "把 hour*100+minute 轉成沒有前導零的字串。",
+      "檢查是否回文，第一個成立的時間補零輸出。"
+    ],
+    "complexity": "單筆最多 O(1440) 次固定長度檢查，O(1) 空間。",
+    "pitfalls": [
+      "要先加一分鐘；例如凌晨時間的回文判斷不能直接比較固定四位 HHMM。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/113/11309.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-11413",
+    "file": "11413 - Fill the Containers.cpp",
+    "number": "11413",
+    "title": "Fill the Containers",
+    "titleZh": "容器最小容量",
+    "language": "C++",
+    "tags": [
+      "二分搜尋",
+      "貪心"
+    ],
+    "summary": "按原順序把多個容器中的液體裝進最多 M 個大容器，不能拆分單個來源，求最小共同容量。",
+    "steps": [
+      "容量下界是最大單筆，上界是所有液體總和。",
+      "對候選容量由左到右裝，裝不下才開下一個容器。",
+      "若需要不超過 M 個就縮小容量，否則增大，直到二分收斂。"
+    ],
+    "complexity": "O(N log S) 時間，O(N) 空間。S 為總液體量。",
+    "pitfalls": [
+      "不能重新排序來源；可行性對容量單調，才可用二分搜尋。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/114/11413.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-11634",
+    "file": "11634 - Generate random numbers.cpp",
+    "number": "11634",
+    "title": "Generate random numbers",
+    "titleZh": "平方取中法循環",
+    "language": "C++",
+    "tags": [
+      "模擬",
+      "集合"
+    ],
+    "summary": "每次把四位數平方後取中間四位作為下一個數，求第一次重複前出現多少個不同數。",
+    "steps": [
+      "建立已出現數值的標記表。",
+      "未見過目前數值時標記並計數。",
+      "以 (n*n/100)%10000 產生下一個值，重複就結束。"
+    ],
+    "complexity": "O(S) 時間，O(10000) 空間。S≤10000。",
+    "pitfalls": [
+      "要保留中間四位，前導零不影響整數表示；第一次重複的數不能再計一次。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/116/11634.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-12503",
+    "file": "12503 - Robot Instructions.cpp",
+    "number": "12503",
+    "title": "Robot Instructions",
+    "titleZh": "機器人指令",
+    "language": "C++",
+    "tags": [
+      "模擬",
+      "陣列"
+    ],
+    "summary": "機器人從 0 出發，指令可能向左、向右，或重做之前某條指令，求最後位置。",
+    "steps": [
+      "將 LEFT 記成 -1、RIGHT 記成 +1。",
+      "SAME AS i 直接取第 i 條已解析的位移。",
+      "保存每條解析結果並累加位置。"
+    ],
+    "complexity": "O(N) 時間與空間。",
+    "pitfalls": [
+      "SAME AS 的編號從 1 開始；先存解析後的位移，可避免重複追溯引用。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/125/12503.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-24941",
+    "file": "24941 - Uncompress.cpp",
+    "number": "24941",
+    "title": "Uncompress",
+    "titleZh": "單字解壓縮",
+    "language": "C++",
+    "tags": [
+      "字串",
+      "模擬"
+    ],
+    "summary": "依現有程式：文字中的數字引用最近使用單字列表的第幾個單字，將它還原並更新列表順序。",
+    "steps": [
+      "逐字讀取，分別累積字母單字與多位數引用。",
+      "遇到分隔符時輸出單字，或依引用取出舊單字。",
+      "新單字及被引用單字都移到列表最前端，保留原分隔符。"
+    ],
+    "complexity": "O(CW) 上界，空間 O(C)。C 為文字長度，W 為單字表長度。",
+    "pitfalls": [
+      "檔名題號來源未確認，不能直接拼成 UVa 題目網址；數字引用必須在目前列表範圍內。"
+    ],
+    "source": "待確認",
+    "originalUrl": null,
+    "originalStatus": "unknown",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "binary-tree-traversals",
+    "file": "Binary Tree Traversals.cpp",
+    "number": "",
+    "title": "Binary Tree Traversals",
+    "titleZh": "由前序中序求後序",
+    "language": "C++",
+    "tags": [
+      "樹",
+      "遞迴"
+    ],
+    "summary": "給節點不重複的二元樹前序與中序走訪，輸出後序走訪。",
+    "steps": [
+      "前序第一個節點是目前子樹的根。",
+      "在中序找根，切分左右子樹範圍，換算前序的起點。",
+      "依左子樹、右子樹、根的順序遞迴輸出。"
+    ],
+    "complexity": "最壞 O(N²) 時間，O(N) 空間。",
+    "pitfalls": [
+      "節點需可唯一辨識；原碼逐次搜尋根的位置，若建立索引可改善效率。"
+    ],
+    "source": "待確認",
+    "originalUrl": null,
+    "originalStatus": "unknown",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "longest-increasing-subsequence",
+    "file": "Longest Increasing Subsequence.cpp",
+    "number": "",
+    "title": "Longest Increasing Subsequence",
+    "titleZh": "最長遞增子序列長度",
+    "language": "C++",
+    "tags": [
+      "動態規劃",
+      "序列"
+    ],
+    "summary": "從整數序列選出嚴格遞增的子序列，求最大長度；可以跳過元素但不能換順序。",
+    "steps": [
+      "每個位置的 dp 初始為 1。",
+      "對所有 j<i，若 arr[j]<arr[i]，以 dp[j]+1 更新 dp[i]。",
+      "輸出所有 dp 的最大值。"
+    ],
+    "complexity": "O(N²) 時間，O(N) 空間。",
+    "pitfalls": [
+      "相等不算嚴格遞增；原碼假設 N>0，空陣列需另外處理。"
+    ],
+    "source": "待確認",
+    "originalUrl": null,
+    "originalStatus": "unknown",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "longest-monotonically-increasing-subsequence",
+    "file": "Longest Monotonically Increasing Subsequence.cpp",
+    "number": "",
+    "title": "Longest Monotonically Increasing Subsequence",
+    "titleZh": "列出所有最長遞增子序列",
+    "language": "C++",
+    "tags": [
+      "動態規劃",
+      "回溯"
+    ],
+    "summary": "除了找最長遞增長度，還列出所有達到該長度的子序列，按字典序輸出。",
+    "steps": [
+      "先計算每個位置結尾的 LIS 長度。",
+      "從所有最長結尾往前回溯，選擇長度減一且數值較小的位置。",
+      "將反向收集的序列翻轉、排序，輸出數量與內容。"
+    ],
+    "complexity": "DP O(N²)；原回溯最壞指數級，另有輸出排序成本；空間至少 O(N+KL)。K 為結果數、L 為長度。",
+    "pitfalls": [
+      "同值但不同索引可能得到重複值序列，原碼不去重；必須核對原題要求的是索引方案還是不同值序列。"
+    ],
+    "source": "待確認",
+    "originalUrl": null,
+    "originalStatus": "unknown",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "minimum-path-sum",
+    "file": "Minimum Path Sum.cpp",
+    "number": "",
+    "title": "Minimum Path Sum",
+    "titleZh": "最小路徑和",
+    "language": "C++",
+    "tags": [
+      "動態規劃",
+      "矩陣"
+    ],
+    "summary": "從矩陣左上走到右下，每次只能往右或往下，求經過格子數字總和的最小值。",
+    "steps": [
+      "先初始化起點、第一列與第一欄。",
+      "其餘位置取上方與左方累積成本的較小值，再加上目前格子。",
+      "輸出右下角的累積成本。"
+    ],
+    "complexity": "O(RC) 時間與空間。",
+    "pitfalls": [
+      "不能斜走；邊界只有一種來源，需先初始化。"
+    ],
+    "source": "待確認",
+    "originalUrl": null,
+    "originalStatus": "unknown",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "prefix-expression-evaluation",
+    "file": "Prefix Expression Evaluation.cpp",
+    "number": "",
+    "title": "Prefix Expression Evaluation",
+    "titleZh": "前序運算式求值",
+    "language": "C++",
+    "tags": [
+      "堆疊",
+      "字串"
+    ],
+    "summary": "讀取以空白分隔的前序運算式，計算整數結果；運算元不足、未知符號、除零等情況輸出 illegal。",
+    "steps": [
+      "先把每行拆成 token，從右往左掃描。",
+      "數字推入堆疊，運算子取出兩個運算元並把結果放回。",
+      "最後堆疊必須恰好一個值，否則不合法。"
+    ],
+    "complexity": "O(C) 時間與空間。C 為輸入字元數。",
+    "pitfalls": [
+      "原碼只看首字元判數字，無法正確驗證整個 token 或負數；減法與除法的左右順序也不能顛倒。"
+    ],
+    "source": "待確認",
+    "originalUrl": null,
+    "originalStatus": "unknown",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  },
+  {
+    "id": "problem-p1210",
+    "file": "p1210 - Sum of Consecutive Prime Numbers.cpp",
+    "number": "p1210",
+    "title": "Sum of Consecutive Prime Numbers",
+    "titleZh": "連續質數和",
+    "language": "C++",
+    "tags": [
+      "質數",
+      "枚舉"
+    ],
+    "summary": "求有多少段連續質數的總和恰好等於 N。質數必須在質數列表上相鄰，單個質數也算一段。",
+    "steps": [
+      "先用篩法建立質數列表。",
+      "枚舉起點，往後依序加總質數。",
+      "和等於 N 就計數，超過 N 即停止該起點。"
+    ],
+    "complexity": "篩表 O(M log log M)，單筆枚舉 O(P²) 上界；空間 O(M+P)。P 為質數個數。",
+    "pitfalls": [
+      "此題可用滑動視窗改善查詢；原碼讀取 v[i]／v[j] 時未檢查末端，接近篩表上限需驗證。"
+    ],
+    "source": "UVa",
+    "originalUrl": "https://onlinejudge.org/external/12/1210.pdf",
+    "originalStatus": "unverified",
+    "editorialStatus": "code-derived",
+    "codeStatus": "syntax-passed",
+    "codeCheckedAt": "2026-10-27"
+  }
+]
